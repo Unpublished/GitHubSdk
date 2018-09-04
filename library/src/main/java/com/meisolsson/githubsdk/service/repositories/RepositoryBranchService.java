@@ -30,6 +30,9 @@ public interface RepositoryBranchService {
     @GET("repos/{owner}/{repo}/branches")
     Single<Response<Page<Branch>>> getBranches(@Path("owner") String owner, @Path("repo") String repo, @Query("page") long page);
 
+    @GET("repos/{owner}/{repo}/branches?per_page=100")
+    Single<Response<Page<Branch>>> getAllBranches(@Path("owner") String owner, @Path("repo") String repo, @Query("page") long page);
+
     @GET("repos/{owner}/{repo}/branches/{branch}")
     Single<Response<Branch>> getBranch(@Path("owner") String owner, @Path("repo") String repo, @Path("branch") String branch);
 

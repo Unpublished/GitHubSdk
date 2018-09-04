@@ -84,6 +84,9 @@ public interface RepositoryService {
     @GET("repos/{owner}/{repo}/tags")
 	Single<Response<Page<Branch>>> getTags(@Path("owner") String owner, @Path("repo") String repo, @Query("page") long page);
 
+    @GET("repos/{owner}/{repo}/tags?per_page=100")
+	Single<Response<Page<Branch>>> getAllTags(@Path("owner") String owner, @Path("repo") String repo, @Query("page") long page);
+
     @DELETE("repos/{owner}/{repo}")
 	Single<Response<Void>> deleteRepository(@Path("owner") String owner, @Path("repo") String repo);
 
